@@ -39,7 +39,7 @@ class Receipt
 
   def points_for_multiple_of_25_cents(total)
     # 25 points if the total is a multiple of 0.25.
-    (total % 0.25).zero? ? 25 : 0
+    (total.to_f % 0.25).zero? ? 25 : 0
   end
 
   def points_for_every_2_items(items)
@@ -54,9 +54,6 @@ class Receipt
     points_earned = 0
     items.each do |item|
       trimmed_item_description = item[:shortDescription].strip.length
-      # puts item[:shortDescription].strip
-      # puts trimmed_item_description
-      # puts(item[:price].to_f * 0.2).ceil
       points_earned += (item[:price].to_f * 0.2).ceil if (trimmed_item_description % 3).zero?
     end
     points_earned
