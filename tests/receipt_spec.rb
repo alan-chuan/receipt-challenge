@@ -57,17 +57,17 @@ describe Receipt do
 
   describe 'private methods' do
     it 'calculates points_for_alphanumeric_chars correctly' do
-      points = receipt.send(:points_for_alphanumeric_chars, 'Target')
+      points = receipt.send(:points_for_alphanumeric_chars, attributes[:retailer])
       expect(points).to eq(6)
     end
 
     it 'calculates points_for_round_dollar_amount correctly' do
-      points = receipt.send(:points_for_round_dollar_amount, 35.35)
+      points = receipt.send(:points_for_round_dollar_amount, attributes[:total])
       expect(points).to eq(0)
     end
 
     it 'calculates points_for_multiple_of_25_cents correctly' do
-      points = receipt.send(:points_for_multiple_of_25_cents, 35.35)
+      points = receipt.send(:points_for_multiple_of_25_cents, attributes[:total])
       expect(points).to eq(0)
     end
 
@@ -88,7 +88,7 @@ describe Receipt do
 
     it 'calculates points_for_purchase_time correctly' do
       points = receipt.send(:points_for_purchase_time, attributes[:purchaseTime])
-      expect(points).to eq(0)  # 10 points for the specified time range.
+      expect(points).to eq(0)
     end
   end
 end
