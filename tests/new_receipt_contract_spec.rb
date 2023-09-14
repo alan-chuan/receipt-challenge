@@ -80,7 +80,7 @@ describe NewReceiptContract do
       retailer: 'Walgreens',
       purchaseDate: '2022-01-02',
       purchaseTime: '13:13',
-      total: '12.3',
+      total: '12.30',
       items: [
         { shortDescription: 'Pepsi - 12-oz', price: '1.25' },
         { shortDescription: 'Dr. Salt - 24-oz', price: '25' }
