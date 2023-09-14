@@ -7,7 +7,7 @@ class NewReceiptContract < Dry::Validation::Contract
   PRICE_REGEX = /^\d+\.\d{2}$/.freeze
 
   schema do
-    required(:retailer).filled(:string){ format?(RETAILER_REGEX) }
+    required(:retailer).filled(:string) { format?(RETAILER_REGEX) }
     required(:purchaseDate).filled(:string)
     required(:purchaseTime).filled(:string) { format?(TIME_REGEX) }
     required(:total).filled(:string) { format?(PRICE_REGEX) }
