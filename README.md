@@ -18,7 +18,7 @@ docker run -p 4567:4567 receipt-webservice
 
 **Description:** This endpoint is used to submit a receipt for processing.
 **Request Body Data Types:**
-- `retailer (string)`: The name of the retailer or store the receipt is from.
+- `retailer (string)`: The name of the retailer or store the receipt is from. (Spaces are allowed in betweeen words, but not before or after.)
 - `purchaseDate (string, date format)`: The date of the purchase printed on the receipt.
 - `purchaseTime (string, time format)`: The time of the purchase printed on the receipt. 24-hour time format is expected.
 - `items (array of objects)`:
@@ -29,7 +29,7 @@ docker run -p 4567:4567 receipt-webservice
 **Example Request Body (JSON):**
 ```
 {
-    "retailer": "Target",
+    "retailer": "M&M Corner Market",
     "purchaseDate": "2022-01-01",
     "purchaseTime": "13:01",
     "items": [
