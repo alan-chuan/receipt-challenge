@@ -68,7 +68,7 @@ describe 'Server' do
       get '/receipts/invalid_id/points'
       expect(last_response.status).to eql(404)
       response_body = JSON.parse(last_response.body)
-      expect(response_body['error']).to match(/not found/)
+      expect(response_body['error']).to match('No receipt found for that ID.')
     end
   end
 end
