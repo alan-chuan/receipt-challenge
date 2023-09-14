@@ -21,7 +21,7 @@ describe NewReceiptContract do
 
   it 'rejects an invalid retailer' do
     invalid_data = {
-      retailer: 'Invalid Retailer',
+      retailer: ' Invalid Retailer   ', # Whitespaces before and after
       purchaseDate: '2022-01-02',
       purchaseTime: '13:13',
       total: '10000.00',
