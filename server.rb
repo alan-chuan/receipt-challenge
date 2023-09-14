@@ -21,12 +21,12 @@ post '/receipts/process' do
   unless contract_result.success?
     status 422
     errors = contract_result.errors(full: true).map(&:to_h)
-    return errors.to_json
+    return { errors: errors.to_json }.to_json
   end
 
   receipt = Receipt.new(request_data)
   receipt_store[receipt.id.to_sym] = receipt
-  return { "id": receipt.id.to_s }.to_json
+  return { id: receipt.id.to_s }.to_json
 end
 
 get '/receipts/:id/points' do
