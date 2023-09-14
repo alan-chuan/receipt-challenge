@@ -9,7 +9,7 @@ class Receipt
     @retailer = attributes[:retailer]
     @purchase_date = attributes[:purchaseDate]
     @purchase_time = attributes[:purchaseTime]
-    @total = attributes[:total].to_f
+    @total = attributes[:total]
     @items = attributes[:items]
   end
 

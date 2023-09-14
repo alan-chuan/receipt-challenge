@@ -43,7 +43,7 @@ describe Receipt do
       expect(receipt.retailer).to eq('Target')
       expect(receipt.purchase_date).to eq('2022-01-01')
       expect(receipt.purchase_time).to eq('13:01')
-      expect(receipt.total).to eq(35.35)
+      expect(receipt.total).to eq('35.35')
       expect(receipt.items).to be_an(Array)
       expect(receipt.items.length).to eq(5)
     end
