@@ -33,6 +33,20 @@ describe NewReceiptContract do
     expect(contract.call(invalid_data)).to_not be_success
   end
 
+  it 'rejects an invalid date' do
+    invalid_data = {
+      retailer: 'Walgreens',
+      purchaseDate: '2022-13-02',
+      purchaseTime: '13:13',
+      total: '1000.00',
+      items: [
+        { shortDescription: 'Pepsi - 12-oz', price: '1.25' }
+      ]
+    }
+
+    expect(contract.call(invalid_data)).to_not be_success
+  end
+
   it 'rejects an invalid purchase time' do
     invalid_data = {
       retailer: 'Walgreens',
