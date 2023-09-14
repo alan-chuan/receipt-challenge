@@ -74,5 +74,8 @@ docker run -p 4567:4567 receipt-webservice
 - `404 NOT FOUND`: If there was no receipt with that ID found in the system. To troubleshoot, ensure that the ticket ID is of valid UUID format and the receipt was created prior to the GET request.
   
 
+---
 
+## Running RSpec Tests
+`docker exec -it {container ID/name} bundle exec rspec ./tests`
 
