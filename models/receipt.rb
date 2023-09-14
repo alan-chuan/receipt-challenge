@@ -15,7 +15,7 @@ class Receipt
   end
 
   def calculate_points
-    return points if points
+    return @points if @points
 
     points_for_alphanumeric_chars(retailer) +
       points_for_round_dollar_amount(total) +
