@@ -3,7 +3,8 @@ require 'json'
 require_relative 'models/receipt'
 require_relative 'contracts/new_receipt_contract'
 require 'pry'
-receipt_list = {} # store receipt objects
+
+receipt_store = {} # store receipt objects
 
 post '/receipts/process' do
   content_type :json
@@ -24,7 +25,7 @@ post '/receipts/process' do
   end
 
   receipt = Receipt.new(request_data)
-  receipt_list[receipt.id.to_sym] = receipt
+  receipt_store[receipt.id.to_sym] = receipt
   return { "id": receipt.id.to_s }.to_json
 end
 
@@ -33,8 +34,8 @@ get '/receipts/:id/points' do
 
   receipt_id = params[:id]
 
-  if receipt_list.key?(receipt_id.to_sym)
-    receipt = receipt_list[receipt_id.to_sym]
+  if receipt_store.key?(receipt_id.to_sym)
+    receipt = receipt_store[receipt_id.to_sym]
 
     points = receipt.points
 
