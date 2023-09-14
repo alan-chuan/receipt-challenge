@@ -12,9 +12,9 @@ post '/receipts/process' do
 
   begin
     request_data = JSON.parse(request.body.read, symbolize_names: true)
-  rescue JSON::ParserError => e
+  rescue JSON::ParserError
     status 400
-    return { error: "Invalid JSON syntax. #{e}" }.to_json
+    return { error: 'The receipt is invalid' }.to_json
   end
 
   contract_result = NewReceiptContract.new.call(request_data)
@@ -43,6 +43,6 @@ get '/receipts/:id/points' do
     return { points: points }.to_json
   else
     status 404
-    return { error: "Receipt with ID #{receipt_id} not found" }.to_json
+    return { error: 'No receipt found for that ID.' }.to_json
   end
 end
