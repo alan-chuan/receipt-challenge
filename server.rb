@@ -27,3 +27,20 @@ post '/receipts/process' do
   receipt_list[receipt.id.to_sym] = receipt
   return { "id": receipt.id.to_s }.to_json
 end
+
+get '/receipts/:id/points' do
+  content_type :json
+
+  receipt_id = params[:id]
+
+  if receipt_list.key?(receipt_id.to_sym)
+    receipt = receipt_list[receipt_id.to_sym]
+
+    points = receipt.points
+
+    return { points: points }.to_json
+  else
+    status 404
+    return { error: "Receipt with ID #{receipt_id} not found" }.to_json
+  end
+end
