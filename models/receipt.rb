@@ -17,15 +17,13 @@ class Receipt
   def calculate_points
     return points if points
 
-    total_points = points_for_alphanumeric_chars(retailer) +
-                   points_for_round_dollar_amount(total) +
-                   points_for_multiple_of_25_cents(total) +
-                   points_for_every_2_items(items) +
-                   points_for_item_description(items) +
-                   points_for_purchase_day(purchase_date) +
-                   points_for_purchase_time(purchase_time)
-    @points = total_points
-    total_points
+    points_for_alphanumeric_chars(retailer) +
+      points_for_round_dollar_amount(total) +
+      points_for_multiple_of_25_cents(total) +
+      points_for_every_2_items(items) +
+      points_for_item_description(items) +
+      points_for_purchase_day(purchase_date) +
+      points_for_purchase_time(purchase_time)
   end
 
   private
