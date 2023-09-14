@@ -3,6 +3,7 @@ require 'json'
 require_relative 'models/receipt'
 require_relative 'contracts/new_receipt_contract'
 require 'pry'
+require 'puma'
 
 receipt_store = {} # store receipt objects
 
